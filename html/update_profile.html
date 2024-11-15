@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Profile</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="login-link">
+
+            <div class="logo">
+                <img src="../image/R.png" alt="">
+                <img src="../image/H.png" alt="">
+            </div>
+
+            <div class="center">
+                <p class="side-big-heading">Update Your Profile</p>
+                <p class="primary-bg-text">To keep track on your dashboard please update your personal info</p>
+                <button class="loginbtn" onclick="updateProfile()" >Update</button>
+            </div>
+
+        </div>
+
+        <form  enctype="multipart/form-data" class="signup-form-container" id="updateProfileForm">
+            <p class="big-heading">Update Profile</p>
+
+            <div class="progress-bar">
+                <div class="step">
+                    <p>
+                        Personal Information
+                    </p>
+                    <div class="bullet">
+                        <span class="icon"><i class='bx bx-lg bx-user-circle'></i></span>
+                    </div>
+                    <div class="check" class="icon"><i class='bx bx-lg bx-user-circle'></i></div>
+                </div>
+                <div class="step">
+                    <p>
+                        Contact Information
+                    </p>
+                    <div class="bullet">
+                        <span class="icon"><i class='bx bx-lg bx-info-circle'></i></span>
+                    </div>
+                    <div class="check" class="icon"><i class='bx bx-lg bx-info-circle'></i></div>
+                </div>
+                <div class="step">
+                    <p>
+                        Upload Document
+                    </p>
+
+                    <div class="bullet">
+                        <span class="icon"><i class='bx bx-lg bxs-file-doc'></i></span>
+                    </div>
+                    <div class="check" class="icon"><i class='bx bx-lg bxs-file-doc'></i></div>
+                </div>
+
+            </div>
+
+            <div class="signup-form-content">
+                <div class="stage1-content">
+                    <div class="button-container">
+                        <div class="input-box">
+                            <span class="icon"><i class='bx bx-md bxs-user-detail'></i></span>
+                            <input type="text" name="fname" id="fname" placeholder=" " value="" required>
+                            <label for="fname">First name</label>
+                        </div>
+                        <div class="input-box lname">
+                            <span class="icon"><i class='bx bx-md bxs-user-detail'></i></span>
+                            <input type="text" name="lname" id="lname" placeholder=" " value="" required>
+                            <label for="lname">Last name</label>
+                        </div>
+                    </div>
+
+                    <div class="button-container">
+                        <div class="input-box">
+                            <span class="icon"><i class='bx bx-md bxs-envelope'></i></span>
+                            <input type="email" name="email" id="email" value="" required>
+                            <label for="email">Email</label>
+                        </div>
+                        <div class="input-box">
+                            <span class="icon"><i class='bx bx-md bxs-id-card'></i></span>
+                            <input type="number" id="en_no" name="en_no" placeholder="" maxlength="14" value=""
+                                data-placeholder="0000000000" required onfocus="initNumberInput(this, '00000000000000')"
+                                oninput="handleNumberInput(this)">
+                            <label for="en_no">Enrollment No</label>
+                        </div>
+                    </div>
+
+                    <div class="button-container">
+                        <div class="input-box dob">
+                            <span class="icon">
+                                <i class='bx bx-md bxs-calendar'></i>
+                            </span>
+                            <input type="text" name="dob" id="dob" placeholder=" " value="" required autocomplete="off">
+                            <label for="dob">Date of Birth</label>
+                        </div>
+                        <div class="input-box">
+                            <span class="icon"><i class='bx bx-md bxs-user'></i></span>
+                            <input type="text" name="gender" id="gender" class="text-input" value="" required
+                                placeholder=" ">
+                            <select class="select-input" required>
+                                <option value="" disabled selected hidden></option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                            </select>
+                            <label for="gender">Gender</label>
+                        </div>
+                    </div>
+                    <div class="pagination-btns">
+                        <input type="button" value="Next" class="nextPage stagebtn1a firstNext"
+                            onclick="stage1to2();">
+                    </div>
+                </div>
+
+                <div class="stage2-content">
+                    <div class="button-container">
+                        <div class="input-box">
+                            <span class="icon"><i class='bx bx-md bxs-mobile'></i></span>
+                            <input type="number" id="mo_no" name="mo_no" placeholder="" maxlength="10" value=""
+                                data-placeholder="0000000000" required onfocus="initNumberInput(this, '0000000000')"
+                                oninput="handleNumberInput(this)">
+                            <label for="mo_no">Mobile No</label>
+                        </div>
+                        <div class="input-box">
+                            <span class="icon"><i class='bx bx-md bxs-buildings'></i></span>
+                            <input type="text" class="text-input" id="department" name="department" value="" required
+                                placeholder=" ">
+                            <select class="select-input">
+                                <option value="" disabled selected hidden></option>
+                                <option value="AUTO">Automobile Engineering</option>
+                                <option value="AIDS">Artificial Intelligence and Data Science</option>
+                                <option value="CE">Computer Engineering</option>
+                                <option value="CIVIL">Civil Engineering</option>
+                                <option value="CHEM">Chemical Engineering</option>
+                                <option value="CSD">Computer Science And Design</option>
+                                <option value="DT">Dairy Technology</option>
+                                <option value="ECE">Electronics and Communication Engineering</option>
+                                <option value="EE">Electrical Engineering</option>
+                                <option value="FPT">Food Processing Technology</option>
+                                <option value="IT">Information Technology</option>
+                                <option value="MT">Mechatronics</option>
+                                <option value="ME">Mechanical Engineering</option>
+                            </select>
+                            <label for="department">Department</label>
+                        </div>
+                    </div>
+
+                    <div class="button-container">
+                        <div class="input-box">
+                            <span class="icon"><i class='bx bx-md bxs-envelope'></i></span>
+                            <div class="uni_email">
+                                <input type="text" id="uni_number" name="uni_number" data-placeholder="0000000000"
+                                    value="" required onfocus="initNumberInput(this, '0000000000'),appear(this)"
+                                    oninput="handleNumberInput(this)" />
+
+                                <input type="text" id="uni_domain" name="uni_domain" value=""
+                                    readonly />
+                                <label for="uni_email">University Email</label>
+                            </div>
+                            <input type="hidden" id="uni_email" name="uni_email" />
+                        </div>
+                        <div class="input-box">
+                            <span class="icon"><i class='bx bx-md bxs-edit-alt'></i></span>
+                            <input type="text" id="abc" name="abc" placeholder="" data-placeholder="000-000-000-000"
+                                value="" required onfocus="initABCInput(this, '000000000000')"
+                                oninput="handleABCInput(this)">
+                            <label for="abc">ABC Id</label>
+                        </div>
+                    </div>
+
+                    <div class="button-container">
+                        <div class="input-box">
+                            <span class="icon"><i class='bx bx-md bxs-home'></i></span>
+                            <input type="text" name="add1" id="add1" value="" required placeholder=" ">
+                            <label for="add1">Address Line 1</label>
+                        </div>
+                        <div class="input-box">
+                            <span class="icon"><i class='bx bx-md bxs-home'></i></span>
+                            <input type="text" name="add2" id="add2" value="" required placeholder=" ">
+                            <label for="add2">Address Line 2</label>
+                        </div>
+                    </div>
+
+                    <div class="button-container">
+                        <div class="input-box">
+                            <span class="icon"><i class='bx bx-md bxl-github'></i></span>
+                            <input type="url" name="github" id="github" value="" required placeholder=" ">
+                            <label for="github">Github Link</label>
+                        </div>
+                        <div class="input-box">
+                            <span class="icon"><i class='bx bx-md bxl-linkedin'></i></span>
+                            <input type="url" name="linkedin" id="linkedin" value="" required placeholder=" ">
+                            <label for="linkedin">Linkdin Link</label>
+                        </div>
+                    </div>
+
+                    <div class=" pagination-btns">
+                        <input type="button" value="Previous" class="previousPage stagebtn2a prev-1"
+                            onclick="stage2to1()">
+                        <input type="button" value="Next" class="nextPage stagebtn2b next-1" onclick="stage2to3()">
+                    </div>
+                </div>
+
+                <div class="stage3-content">
+                    <!-- Passport Image Upload -->
+                    <div class="button-container con">
+                        <div class="container-upload">
+                            <div class="upload-button">
+                                <input class="file-upload" type="file" accept="image/*,.pdf,.doc,.docx"
+                                    name="passport_img" id="passport_img" required />
+                                <label for="passport_img"><i class="fa-solid fa-upload"></i>Passport-size Image</label>
+                                <p>🖼️</p>
+                                <div id="error"></div>
+                            </div>
+                            <ul id="file-list"></ul>
+                            <div class="view_file">
+                                <a href="#" id="view_passport_img">View</a></p>
+                            </div>
+                        </div>
+                
+                        <!-- Aadhaar Card Upload -->
+                        <div class="container-upload">
+                            <div class="upload-button">
+                                <input class="file-upload" type="file" name="aadhaar_card" id="aadhaar_card" required />
+                                <label for="aadhaar_card"><i class="fa-solid fa-upload"></i>Aadhaar card</label>
+                                <p style="margin-bottom: 10px;">🪪</p>
+                                <div id="error"></div>
+                            </div>
+                            <ul id="file-list"></ul>
+                            <div class="view_file">
+                                <a href="#" id="view_aadhaar_card">View</a></p>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <!-- Academic Marksheet Upload -->
+                    <div class="button-container con">
+                        <div class="container-upload">
+                            <div class="upload-button">
+                                <input class="file-upload" type="file" name="pre_academic" id="pre_academic" required />
+                                <label for="aadhaar_card"><i class="fa-solid fa-upload"></i>Academic Marksheet</label>
+                                <p>📋</p>
+                                <div id="error"></div>
+                            </div>
+                            <ul id="file-list"></ul>
+                            <div class="view_file">
+                                <a href="#" id="view_pre_academic">View</a></p>
+                            </div>
+                        </div>
+                
+                        <!-- Resume Upload -->
+                        <div class="container-upload">
+                            <div class="upload-button">
+                                <input class="file-upload" type="file" name="resume" id="resume" required />
+                                <label for="resume"><i class="fa-solid fa-upload"></i>Resume</label>
+                                <p>📑</p>
+                                <div id="error"></div>
+                            </div>
+                            <ul id="file-list"></ul>
+                            <div class="view_file">
+                                <a href="#" id="view_resume">View</a></p>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <!-- Portfolio Upload -->
+                    <div class="button-container con">
+                        <div class="container-upload">
+                            <div class="upload-button">
+                                <input class="file-upload" type="file" name="portfolio" id="portfolio" required />
+                                <label for="portfolio"><i class="fa-solid fa-upload"></i>Portfolio</label>
+                                <p>📰</p>
+                                <div id="error"></div>
+                            </div>
+                            <ul id="file-list"></ul>
+                            <div class="view_file">
+                                <a href="#" id="view_portfolio">View</a></p>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <!-- Pagination Buttons -->
+                    <div class="pagination-btns">
+                        <input type="button" value="Previous" class="previousPage stagebtn3a prev-2" onclick="stage3to2()">
+                        <input type="button" value="Done" class="previousPage stagebtn3b prev-2" onclick="done()">
+                    </div>
+                </div>
+                
+            </div>
+        </form>
+    </div>
+
+    <script>
+        async function fetchUserData() {
+        const userId = new URLSearchParams(window.location.search).get('id');
+        try {
+            const response = await fetch(`../php/process_login.php?id=${userId}`, {
+                method: 'GET'
+            });
+            const data = await response.json();
+
+            // Fill personal and contact information
+            document.getElementById('fname').value = data.fname;
+            document.getElementById('lname').value = data.lname;
+            document.getElementById('email').value = data.email;
+            document.getElementById('en_no').value = data.en_no;
+            document.getElementById('dob').value = data.dob;
+            document.getElementById('gender').value = data.gender;
+            document.getElementById('mo_no').value = data.mo_no;
+            document.getElementById('department').value = data.department;
+            document.getElementById('uni_number').value = data.uni_number;
+            document.getElementById('uni_domain').value = data.uni_domain;
+            document.getElementById('abc').value = data.abc_id;
+            document.getElementById('add1').value = data.add1;
+            document.getElementById('add2').value = data.add2;
+            document.getElementById('github').value = data.github;
+            document.getElementById('linkedin').value = data.linkedin;
+
+            // Fill document URLs
+            document.getElementById('view_passport_img').href = data.passport_img;
+            document.getElementById('view_aadhaar_card').href = data.aadhaar_card;
+            document.getElementById('view_pre_academic').href = data.pre_academic;
+            document.getElementById('view_resume').href = data.resume;
+            document.getElementById('view_portfolio').href = data.portfolio;
+        } catch (error) {
+            console.error('Error fetching user data:', error);
+        }
+    }
+
+    // Prefill the form with user data
+    fetchUserData();
+    
+        // Update user profile
+        function updateProfile() {
+            const userId = new URLSearchParams(window.location.search).get('id');
+            const formData = new FormData(document.getElementById('updateProfileForm'));
+
+            fetch('../php/process_login.php?id=' + userId, {
+                method: 'PUT',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    alert('Profile updated successfully!');
+                    window.location.href = 'dashboard.html';
+                } else {
+                    alert('Error updating profile: ' + data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error updating profile:', error);
+                alert('An error occurred while updating the profile.');
+            });
+        }
+
+        
+    </script>
+
+    <script src="../javascript/script-update.js"></script>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+</body>
+
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .toggle-btn {
+            width: 100%;
+            padding: 15px;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .content-section {
+            display: none;
+        }
+
+        .active-section {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container my-5">
+        <h1 class="text-center mb-4">User Dashboard</h1>
+
+        <!-- Toggle Buttons -->
+        <div class="d-flex justify-content-center mb-4">
+            <button id="btn-personal" class="btn btn-outline-primary toggle-btn" onclick="showSection('personal')">
+                <i class="fas fa-user"></i> Personal Information
+            </button>
+            <button id="btn-contact" class="btn btn-outline-success toggle-btn mx-2" onclick="showSection('contact')">
+                <i class="fas fa-address-book"></i> Contact Information
+            </button>
+            <button id="btn-documents" class="btn btn-outline-info toggle-btn" onclick="showSection('documents')">
+                <i class="fas fa-file-alt"></i> Documents
+            </button>
+        </div>
+
+        <!-- Personal Information Section -->
+        <div id="section-personal" class="content-section active-section">
+            <div class="card border-primary shadow-sm">
+                <div class="card-header bg-primary text-white">
+                    <h2 class="card-title mb-0"><i class="fas fa-user"></i> Personal Information</h2>
+                </div>
+                <div class="card-body">
+                    <input type="hidden" id="id">
+                    <p><strong>Id:</strong> <span id="idid"></span></p>
+                    <p><strong>Name:</strong> <span id="name"></span></p>
+                    <p><strong>Email:</strong> <span id="email"></span></p>
+                    <p><strong>Enrollment Number:</strong> <span id="en_no"></span></p>
+                    <p><strong>Date of Birth:</strong> <span id="dob"></span></p>
+                    <p><strong>Gender:</strong> <span id="gender"></span></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Information Section -->
+        <div id="section-contact" class="content-section">
+            <div class="card border-success shadow-sm">
+                <div class="card-header bg-success text-white">
+                    <h2 class="card-title mb-0"><i class="fas fa-address-book"></i> Contact Information</h2>
+                </div>
+                <div class="card-body">
+                    <p><strong>Mobile Number:</strong> <span id="mo_no"></span></p>
+                    <p><strong>Department:</strong> <span id="department"></span></p>
+                    <p><strong>University Email:</strong> <span id="uni_email"></span></p>
+                    <p><strong>ABC ID:</strong> <span id="abc_id"></span></p>
+                    <p><strong>Address 1:</strong> <span id="add1"></span></p>
+                    <p><strong>Address 2:</strong> <span id="add2"></span></p>
+                    <p><strong>Github:</strong> <a href="#" id="github"></a></p>
+                    <p><strong>LinkedIn:</strong> <a href="#" id="linkedin"></a></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Documents Section -->
+        <div id="section-documents" class="content-section">
+            <div class="card border-info shadow-sm">
+                <div class="card-header bg-info text-white">
+                    <h2 class="card-title mb-0"><i class="fas fa-file-alt"></i> Documents</h2>
+                </div>
+                <div class="card-body">
+                    <p><strong>Passport Image:</strong> <a href="#" id="passport_img">View</a></p>
+                    <p><strong>Aadhaar Card:</strong> <a href="#" id="aadhaar_card">View</a></p>
+                    <p><strong>Previous Academic:</strong> <a href="#" id="pre_academic">View</a></p>
+                    <p><strong>Resume:</strong> <a href="#" id="resume">View</a></p>
+                    <p><strong>Portfolio:</strong> <a href="#" id="portfolio">View</a></p>
+                </div>
+            </div>
+        </div>
+        <!-- Action Buttons -->
+        <div class="d-flex justify-content-center mt-4">
+            <button class="btn btn-primary me-2" onclick="updateProfile()"><i class="fas fa-edit"></i> Update</button>
+            <button class="btn btn-danger me-2" onclick="deleteUser()"><i class="fas fa-trash-alt"></i> Delete</button>
+            <button class="btn btn-secondary" onclick="signOut()"><i class="fas fa-sign-out-alt"></i> Sign Out</button>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        function showSection(section) {
+            // Hide all sections
+            document.querySelectorAll('.content-section').forEach((el) => el.classList.remove('active-section'));
+
+            // Remove active class from all buttons
+            document.querySelectorAll('.toggle-btn').forEach((btn) => btn.classList.remove('active'));
+
+            // Show the selected section
+            document.getElementById(`section-${section}`).classList.add('active-section');
+
+            // Highlight the active button
+            document.getElementById(`btn-${section}`).classList.add('active');
+        }
+
+        // Default to showing the Personal Information section
+        showSection('personal');
+    </script>
+    <script src="../javascript/script-dashboard.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+</body>
+
+</html>
