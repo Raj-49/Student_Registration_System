@@ -1,0 +1,53 @@
+1. Create the following database and tables in phpmyadmin 
+
+2. Extract this -> Student_Registration_System   folder into C:\wamp64\www (means into www folder of your wamp folder)
+
+3.access thee index with : http://localhost:8081/Student_Registration_System/index.html
+
+Database : web_student_registration
+
+CREATE TABLE personal_info (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    fname VARCHAR(100),
+    lname VARCHAR(100),
+    email VARCHAR(100) UNIQUE,
+    en_no BIGINT UNIQUE,
+    password VARCHAR(255),
+    dob VARCHAR(255),
+    gender VARCHAR(10)
+);
+
+CREATE TABLE contact_info (
+    id INT,
+    mo_no BIGINT,
+    department VARCHAR(100),
+    uni_email VARCHAR(100) UNIQUE,
+    abc_id VARCHAR(20) UNIQUE,
+    add1 VARCHAR(255),
+    add2 VARCHAR(255),
+    github VARCHAR(255),
+    linkedin VARCHAR(255),
+    FOREIGN KEY (id) REFERENCES personal_info(id)
+);
+
+CREATE TABLE documents (
+    id INT,
+    passport_img VARCHAR(255),
+    aadhaar_card VARCHAR(255),
+    pre_academic VARCHAR(255),
+    resume VARCHAR(255),
+    portfolio VARCHAR(255),
+    FOREIGN KEY (id) REFERENCES personal_info(id)
+);
+
+Working :
+
+sign in --> register --> Take student details, submit and redirect to index
+sign in --> script --> remember me logic(coockie)
+sign in backend php: --> forget password --> email passwordreset link --> password reset logic
+sign in backend php: --> dash board(with update, delete and sign out option)
+dashbord backend php: --> show all the details from 3 tables
+    buttons logic 
+        update : redirect to update_profile page and make updates and submit it and redirect to index
+        delete : delete that particular student record and redirect to index
+        sign out : redirect to index and also can not go back too dashboard

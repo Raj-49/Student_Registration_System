@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="css/style-index.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="login-link">
+
+            <div class="logo">
+                <img src="image/R.png" alt="">
+                <img src="image/H.png" alt="">
+            </div>
+
+            <div class="center">
+                <p class="side-big-heading">Create your account</p>
+                <p class="primary-bg-text">To keep track on your dashboard please login with your personal info</p>
+                <a href="html/register.html" class="loginbtn">Register now</a>
+            </div>
+
+        </div>
+
+
+        <div class="signup-form-container">
+
+            <form action="php/process_login.php" method="POST" >
+
+                <div class="login-form-contents">
+                    <p class="big-heading">Login to your account</p>
+
+                    <div class="input-box">
+                        <span class="icon"><i class='bx bx-md bxs-envelope'></i></span>
+                        <input type="email" name="email" id="email" placeholder=" " required>
+                        <label for="email">Email</label>
+                    </div>
+
+                    <div class="input-box">
+                        <div class="input-box">
+                            <span class="icon"><i class='bx bx-md bxs-lock-alt' class="togglePassword"></i></span>
+                            <input type="password" name="password" id="password" class="pass" placeholder=" " required>
+                            <label for="password">Password</label>
+                        </div>
+                    </div>
+
+                    <div class="remember-forgot">
+                        <label class="remember"><input type="checkbox">Remember me</label>
+                        <a class="forgot-password" href="#">Forgot Password?</a>
+                    </div>
+
+                    <div class="btn">
+                        <input type="submit" value="Login">
+                    </div>
+                </div>
+            </form>
+
+            <form action="" id="reset">
+                <div class="login-form-contents reset">
+                    <p class="big-heading">Reset &nbspPassword</p>
+                    <p>Enter the Email Address for Password Reset Link</p>
+                    <div class="input-box">
+                        <span class="icon"><i class='bx bx-md bxs-envelope'></i></span>
+                        <input type="email" name="reset_email" id="reset_email" placeholder=" " required>
+                        <label for="reset_email">Email</label>
+                    </div>
+                    <div class="btn">
+                        <input type="submit"  value="Send">
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</body>
+<script src="javascript/script-index.js"></script>
+<script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+</html>
